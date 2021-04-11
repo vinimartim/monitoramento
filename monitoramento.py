@@ -35,13 +35,13 @@ def alarme(nome_porta, id):
         # con.executa_dml(sql)
 
         if status_porta == 1:
-            sleep(delay)
+            sleep(delay_alarme)
 
             if checa_porta(id) == True:
                 print(f"Porta {nome_porta} aberta")
 
                 lock.acquire()
-                pygame.mixer.music.load(nome_porta + ".mp3")     
+                pygame.mixer.music.load(f"audios/{nome_porta}.mp3")     
                 pygame.mixer.music.play()
                 sleep(5)
                 lock.release()
